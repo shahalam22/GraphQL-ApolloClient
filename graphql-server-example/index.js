@@ -11,6 +11,12 @@ const resolvers = {
     Query: {
         games() {
             return db.games;
+        },
+        reviews() {
+            return db.reviews;
+        },
+        authors(){
+            return db.authors;
         }
     }
 }
@@ -20,6 +26,7 @@ const server = new ApolloServer({
     //typeDefs (schemas) -- definitions of types of data available in the graph that gonna be queried
     typeDefs,
     // resolvers: require('./resolvers'),
+    resolvers
 })
 
 const { url } = await startStandaloneServer(server, {
